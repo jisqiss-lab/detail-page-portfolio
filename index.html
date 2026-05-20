@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>프로젝트 상세페이지 포트폴리오</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pretendard:wght@400;500;600;700;800;900&family=Caveat:wght@600;700&display=swap');
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{
+    font-family:'Pretendard',-apple-system,sans-serif;
+    background:#1a1a1a;color:#222;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{
+    width:1400px;margin:0 auto;background:#fff;
+    box-shadow:0 0 60px rgba(0,0,0,0.15);
+  }
+
+  /* ──────── 인트로 ──────── */
+  .intro{padding:80px 80px 60px;text-align:center;}
+  .intro .eyebrow{
+    display:inline-flex;align-items:center;gap:14px;
+    font-size:11px;letter-spacing:5px;
+    color:#666;font-weight:700;text-transform:uppercase;
+    margin-bottom:18px;
+  }
+  .intro .eyebrow::before,
+  .intro .eyebrow::after{
+    content:'';width:36px;height:1px;background:#bbb;
+  }
+  .intro h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:84px;font-weight:400;letter-spacing:-1px;
+    line-height:1;color:#1a1a1a;margin-bottom:14px;
+  }
+  .intro h1 em{font-style:italic;font-weight:500;color:#888;}
+  .intro p{font-size:14px;color:#666;letter-spacing:0.4px;line-height:1.7;}
+
+  /* ── 섹션 5 · Golden Ampoule ── */
+  .section.s5{
+    --bg: linear-gradient(135deg, #FEEAE4 0%, #F5C4BC 100%);
+    --text:#3D1F1A; --sub:#8B5248; --accent:#C97A6E;
+    --badge-bg:#FFF7F5; --col-bg:#FFF7F5;
+  }
+
+  /* ──────── 섹션 ──────── */
+  .section{
+    --bg:#f5f5f5; --text:#1a1a1a; --sub:#555;
+    --accent:#888; --badge-bg:#fff; --col-bg:#fff;
+    background:var(--bg);color:var(--text);
+    padding:60px 50px 80px;position:relative;
+  }
+  .corner-label{
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:10px;letter-spacing:3px;font-weight:700;
+    color:var(--sub);text-transform:uppercase;
+    margin-bottom:36px;
+  }
+  .corner-label .num{
+    font-family:'Cormorant Garamond',serif;
+    font-size:14px;letter-spacing:2px;
+  }
+
+  .row{
+    display:grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap:24px;align-items:stretch;
+  }
+
+  /* ── 좌측 폰 영역 ── */
+  .phone-area{
+    position:relative;border-radius:8px;
+    padding:30px 14px 28px;
+    display:flex;flex-direction:column;align-items:center;
+    height:1320px;
+    overflow:visible;
+    z-index:5;
+  }
+  .phone-area .label{
+    display:inline-block;
+    background:var(--badge-bg);
+    border:1px solid var(--accent);
+    color:var(--text);
+    font-size:11px;
+    padding:7px 16px;border-radius:999px;
+    font-weight:700;letter-spacing:3px;
+    margin-bottom:14px;
+  }
+  .phone-area .ko-copy{
+    font-size:30px;font-weight:800;line-height:1.3;
+    text-align:center;letter-spacing:-1.3px;
+    color:var(--text);margin-bottom:6px;
+  }
+  .phone-area .script{
+    font-family:'Caveat',cursive;
+    font-size:38px;font-weight:700;
+    color:var(--accent);
+    margin-bottom:14px;line-height:0.9;
+  }
+  .phone{
+    width:438px;height:912px;
+    background:#1a1a1a;
+    border-radius:54px;padding:9px;
+    box-shadow:
+      0 50px 90px rgba(0,0,0,0.32),
+      0 14px 28px rgba(0,0,0,0.16),
+      0 0 0 1.5px rgba(0,0,0,0.04);
+    position:relative;
+    transform:rotate(-3deg) translateX(28px);
+    transform-origin:center center;
+    z-index:10;
+  }
+  .phone::before{
+    content:'';position:absolute;
+    top:18px;left:50%;transform:translateX(-50%);
+    width:120px;height:26px;background:#1a1a1a;
+    border-radius:999px;z-index:3;
+  }
+  .phone::after{
+    content:'';position:absolute;
+    left:-3px;top:170px;width:3px;height:64px;
+    background:#1a1a1a;border-radius:2px;
+  }
+  .phone-screen{
+    width:100%;height:100%;
+    border-radius:46px;overflow:hidden;background:#fff;
+  }
+  .phone-screen img{
+    width:100%;height:100%;display:block;
+    object-fit:cover;object-position:top center;
+  }
+  .badges{
+    display:flex;gap:14px;margin-top:auto;padding-top:24px;
+  }
+  .circle-badge{
+    width:84px;height:84px;border-radius:50%;
+    background:var(--badge-bg);
+    border:1.5px solid var(--accent);
+    display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;
+    box-shadow:0 6px 14px rgba(0,0,0,0.07);
+  }
+  .circle-badge .top{
+    font-size:8px;letter-spacing:1.5px;font-weight:700;
+    color:var(--accent);margin-bottom:2px;text-transform:uppercase;
+  }
+  .circle-badge .main{
+    font-size:12px;font-weight:800;line-height:1.15;
+    color:var(--text);letter-spacing:-0.5px;
+  }
+  .circle-badge .bot{
+    font-size:7.5px;letter-spacing:1.3px;font-weight:600;
+    color:var(--accent);margin-top:2px;text-transform:uppercase;
+  }
+
+  /* ── 우측 미리보기 컬럼 ── */
+  .preview-col{
+    background-color:var(--col-bg);
+    border-radius:6px;overflow:hidden;
+    box-shadow:0 24px 56px rgba(0,0,0,0.13);
+    height:1320px;
+    background-size:100% auto;
+    background-repeat:no-repeat;
+    background-position-x:center;
+    position:relative;
+    z-index:1;
+  }
+  .preview-col.top{ background-position-y: 0; }
+  .preview-col.bottom{ background-position-y: 100%; }
+  .preview-col .col-tag{
+    position:absolute;top:14px;left:14px;
+    font-size:9px;letter-spacing:2px;font-weight:700;
+    color:var(--sub);
+    background:rgba(255,255,255,0.92);
+    padding:5px 11px;border-radius:999px;
+    text-transform:uppercase;z-index:3;
+  }
+  .preview-col .col-foot{
+    position:absolute;bottom:0;left:0;right:0;
+    padding:14px;text-align:center;
+    font-family:'Cormorant Garamond',serif;
+    font-size:11px;letter-spacing:3px;
+    color:var(--sub);text-transform:uppercase;z-index:3;
+    background:linear-gradient(transparent, var(--col-bg) 65%);
+  }
+
+  /* ── 섹션 1 · Pudding Fit ── */
+  .section.s1{
+    --bg: linear-gradient(135deg, #E8F0D9 0%, #CFE0B0 100%);
+    --text:#1F3A1F; --sub:#4F6B3F; --accent:#6BAA3F;
+    --badge-bg:#FAFAF2; --col-bg:#FAFAF2;
+  }
+  /* ── 섹션 2 · Walwal Box ── */
+  .section.s2{
+    --bg: linear-gradient(135deg, #FFE9D4 0%, #FFC99B 100%);
+    --text:#5C2E14; --sub:#8C4F2C; --accent:#E87B33;
+    --badge-bg:#FFFAF2; --col-bg:#FFFAF2;
+  }
+  /* ── 섹션 3 · Field Notes ── */
+  .section.s3{
+    --bg: linear-gradient(135deg, #2A1F18 0%, #4A3527 100%);
+    --text:#F5EAD7; --sub:#C9B69A; --accent:#D4A968;
+    --badge-bg:#1F1812; --col-bg:#FFFCF5;
+  }
+  .section.s3 .phone-area .label{ color:#F5EAD7; background:#1F1812; border-color:#D4A968; }
+  .section.s3 .preview-col .col-tag{ background:rgba(31,24,18,0.85); color:#F5EAD7; }
+  .section.s3 .preview-col .col-foot{
+    color:#8B7355;
+    background:linear-gradient(transparent, #FFFCF5 65%);
+  }
+  .section.s3 .circle-badge .top,
+  .section.s3 .circle-badge .bot{ color:#D4A968; }
+  .section.s3 .circle-badge .main{ color:#F5EAD7; }
+
+  /* ── 섹션 4 · Cozy Hug ── */
+  .section.s4{
+    --bg: linear-gradient(135deg, #E0E6EA 0%, #C2D0DA 100%);
+    --text:#2A3540; --sub:#5C6B78; --accent:#5E89A0;
+    --badge-bg:#F8FAFB; --col-bg:#F8FAFB;
+  }
+
+  /* ── 스크롤 애니메이션 ── */
+  .phone-area,
+  .preview-col {
+    transition-property: transform, opacity;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform, opacity;
+  }
+  .phone-area         { opacity:0; transform:translateY(60px);   transition-duration:0.7s;  transition-delay:0ms; }
+  .preview-col.top    { opacity:0; transform:translateY(-120px); transition-duration:1.3s; transition-delay:180ms; }
+  .preview-col.bottom { opacity:0; transform:translateY(120px);  transition-duration:1.3s; transition-delay:320ms; }
+  .section.is-visible .phone-area,
+  .section.is-visible .preview-col { opacity:1; transform:translateY(0); }
+
+  /* 푸터 */
+  .outro{
+    padding:60px 80px 80px;text-align:center;
+    background:#1a1a1a;color:#fff;
+  }
+  .outro h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:52px;font-weight:400;font-style:italic;
+    letter-spacing:-1px;margin-bottom:10px;
+  }
+  .outro h2 em{color:#C9A36B;}
+  .outro p{
+    font-size:11px;color:#888;letter-spacing:3px;
+    text-transform:uppercase;font-weight:600;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- 인트로 -->
+  <div class="intro">
+    <div class="eyebrow">— Detail Page Portfolio —</div>
+    <h1>Selected <em>Works</em></h1>
+    <p>스크롤이 멈추는 상세페이지, 5선<br>· 기획 · 카피 · 비주얼 디자인 · AI 이미지 ·</p>
+  </div>
+
+  <!-- 섹션 1 · 푸딩핏 -->
+  <section class="section s1">
+    <div class="corner-label">
+      <span>Pudding Fit · Slim Stick</span>
+      <span class="num">No. 01 / 05</span>
+    </div>
+    <div class="row">
+      <div class="phone-area">
+        <div class="label">슬림 푸딩 젤리스틱</div>
+        <div class="ko-copy">한 끼를 가볍게 잡아주는<br>컴팩트 슬리밍</div>
+        <div class="script">Daily, 1 Stick</div>
+        <div class="phone">
+          <div class="phone-screen"><img src="푸딩핏 860.png" alt=""></div>
+        </div>
+        <div class="badges">
+          <div class="circle-badge">
+            <div class="top">1 stick</div>
+            <div class="main">데일리<br>1포</div>
+            <div class="bot">simple</div>
+          </div>
+          <div class="circle-badge">
+            <div class="top">premium</div>
+            <div class="main">건기식<br>GMP</div>
+            <div class="bot">authorized</div>
+          </div>
+        </div>
+      </div>
+      <div class="preview-col top" style="background-image:url('푸딩핏 860.png')">
+        <span class="col-tag">Detail · 1</span>
+        <span class="col-foot">— Pudding Fit · Recommend —</span>
+      </div>
+      <div class="preview-col bottom" style="background-image:url('푸딩핏 860.png')">
+        <span class="col-tag">Detail · 2</span>
+        <span class="col-foot">— Pudding Fit · Point —</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 섹션 2 · 왈왈박스 -->
+  <section class="section s2">
+    <div class="corner-label">
+      <span>Walwal Box · Pet Snack</span>
+      <span class="num">No. 02 / 05</span>
+    </div>
+    <div class="row">
+      <div class="phone-area">
+        <div class="label">강아지 맞춤 간식 박스</div>
+        <div class="ko-copy">까다로운 입맛도<br>끄덕이게 만드는 큐레이션</div>
+        <div class="script">For our pup</div>
+        <div class="phone">
+          <div class="phone-screen"><img src="강아지 간식.png" alt=""></div>
+        </div>
+        <div class="badges">
+          <div class="circle-badge">
+            <div class="top">curation</div>
+            <div class="main">맞춤<br>큐레이션</div>
+            <div class="bot">tailored</div>
+          </div>
+          <div class="circle-badge">
+            <div class="top">selected</div>
+            <div class="main">프리미엄<br>엄선</div>
+            <div class="bot">premium</div>
+          </div>
+        </div>
+      </div>
+      <div class="preview-col top" style="background-image:url('강아지 간식.png')">
+        <span class="col-tag">Detail · 1</span>
+        <span class="col-foot">— Walwal Box · Recommend —</span>
+      </div>
+      <div class="preview-col bottom" style="background-image:url('강아지 간식.png')">
+        <span class="col-tag">Detail · 2</span>
+        <span class="col-foot">— Walwal Box · Review —</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 섹션 3 · FieldNotes -->
+  <section class="section s3">
+    <div class="corner-label">
+      <span>Field Notes · Specialty Coffee</span>
+      <span class="num">No. 03 / 05</span>
+    </div>
+    <div class="row">
+      <div class="phone-area">
+        <div class="label">예가체프 드립 원두필터</div>
+        <div class="ko-copy">한 잔에 담은<br>깊이의 기록</div>
+        <div class="script">Yirgacheffe</div>
+        <div class="phone">
+          <div class="phone-screen"><img src="원두 필터.png" alt=""></div>
+        </div>
+        <div class="badges">
+          <div class="circle-badge">
+            <div class="top">specialty</div>
+            <div class="main">스페셜티<br>그레이드</div>
+            <div class="bot">grade</div>
+          </div>
+          <div class="circle-badge">
+            <div class="top">ethiopia</div>
+            <div class="main">산지<br>직송</div>
+            <div class="bot">origin</div>
+          </div>
+        </div>
+      </div>
+      <div class="preview-col top" style="background-image:url('원두 필터.png')">
+        <span class="col-tag">Detail · 1</span>
+        <span class="col-foot">— Field Notes · Story —</span>
+      </div>
+      <div class="preview-col bottom" style="background-image:url('원두 필터.png')">
+        <span class="col-tag">Detail · 2</span>
+        <span class="col-foot">— Field Notes · Brewing —</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 섹션 4 · 코지허그 -->
+  <section class="section s4">
+    <div class="corner-label">
+      <span>Cozy Hug · Memory Foam</span>
+      <span class="num">No. 04 / 05</span>
+    </div>
+    <div class="row">
+      <div class="phone-area">
+        <div class="label">메모리폼 슬립 필로우</div>
+        <div class="ko-copy">3초 만에 안기는<br>메모리폼의 감각</div>
+        <div class="script">3-sec hug</div>
+        <div class="phone">
+          <div class="phone-screen"><img src="코지허그.png" alt=""></div>
+        </div>
+        <div class="badges">
+          <div class="circle-badge">
+            <div class="top">memory</div>
+            <div class="main">3초<br>메모리폼</div>
+            <div class="bot">soft</div>
+          </div>
+          <div class="circle-badge">
+            <div class="top">breathable</div>
+            <div class="main">통풍<br>메쉬커버</div>
+            <div class="bot">washable</div>
+          </div>
+        </div>
+      </div>
+      <div class="preview-col top" style="background-image:url('코지허그.png')">
+        <span class="col-tag">Detail · 1</span>
+        <span class="col-foot">— Cozy Hug · Hero —</span>
+      </div>
+      <div class="preview-col bottom" style="background-image:url('코지허그.png')">
+        <span class="col-tag">Detail · 2</span>
+        <span class="col-foot">— Cozy Hug · Detail —</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 섹션 5 · 앰플 -->
+  <section class="section s5">
+    <div class="corner-label">
+      <span>Golden · 2중 골든 앰플</span>
+      <span class="num">No. 05 / 05</span>
+    </div>
+    <div class="row">
+      <div class="phone-area">
+        <div class="label">2중 골든 앰플</div>
+        <div class="ko-copy">두 겹의 골든,<br>한 방울에 담다</div>
+        <div class="script">Golden Duo</div>
+        <div class="phone">
+          <div class="phone-screen"><img src="앰플.png" alt=""></div>
+        </div>
+        <div class="badges">
+          <div class="circle-badge">
+            <div class="top">2-layer</div>
+            <div class="main">2중<br>앰플</div>
+            <div class="bot">formula</div>
+          </div>
+          <div class="circle-badge">
+            <div class="top">efficacy</div>
+            <div class="main">92%<br>만족도</div>
+            <div class="bot">tested</div>
+          </div>
+        </div>
+      </div>
+      <div class="preview-col top" style="background-image:url('앰플.png')">
+        <span class="col-tag">Detail · 1</span>
+        <span class="col-foot">— Golden Ampoule · Hero —</span>
+      </div>
+      <div class="preview-col bottom" style="background-image:url('앰플.png'); background-position-y: 50%">
+        <span class="col-tag">Detail · 2</span>
+        <span class="col-foot">— Golden Ampoule · Effect —</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <div class="outro">
+    <h2>Let's <em>design</em> yours.</h2>
+    <p>kmong · detail page · 2024 — 2026</p>
+  </div>
+
+</div>
+
+
+<script>
+const observer = new IntersectionObserver(
+  entries => entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('is-visible'); observer.unobserve(e.target); }
+  }),
+  { rootMargin: '0px 0px -80px 0px', threshold: 0 }
+);
+document.querySelectorAll('.section').forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
