@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Premium · Detail Page Portfolio</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pretendard:wght@400;500;600;700;800;900&family=Caveat:wght@600;700&display=swap');
@@ -15,7 +16,7 @@
   a{text-decoration:none;color:inherit;}
 
   .page{
-    width:1400px;margin:0 auto;background:#fff;
+    max-width:1400px;width:100%;margin:0 auto;background:#fff;
     box-shadow:0 0 60px rgba(0,0,0,0.15);
   }
 
@@ -261,6 +262,35 @@
   .outro .home-link:hover{
     background:#E8C77A;color:#1a1a1a;
   }
+
+  /* ──────── 반응형 ──────── */
+  @media (max-width:768px){
+    .top-bar{ padding:18px 20px; }
+
+    .intro{ padding:48px 20px 32px; }
+    .intro h1{ font-size:52px; }
+    .intro p{ font-size:13px; }
+
+    .section{ padding:36px 16px 48px; }
+    .corner-label{ font-size:9px; letter-spacing:2px; margin-bottom:24px; }
+
+    .row{ grid-template-columns:1fr; gap:14px; }
+
+    .phone-area{ height:auto; padding:16px 14px 20px; }
+    .phone{
+      width:280px; height:583px;
+      border-radius:35px; padding:6px;
+      transform:rotate(-3deg) translateX(14px);
+    }
+    .phone::before{ width:77px; height:17px; top:12px; }
+    .phone::after{ top:109px; height:41px; width:2px; left:-2px; }
+    .phone-screen{ border-radius:29px; }
+
+    .preview-col{ height:480px; }
+
+    .outro{ padding:48px 24px 56px; }
+    .outro h2{ font-size:36px; }
+  }
 </style>
 </head>
 <body>
@@ -277,7 +307,7 @@
   <div class="intro">
     <div class="eyebrow">— Tier 03 · Premium —</div>
     <h1>The <em>Premium</em></h1>
-    <p>상품 맞춤 디자인 + 더 많은 AI 연출샷 제공 · 제품의 세계관을 확장하는 풍성한 비주얼.<br>· Deluxe 전 항목 포함 · AI 연출샷 다수 · 스토리텔링 강화 ·</p>
+    <p>상품 맞춤 디자인 + 더 많은 AI 연출샷 제공 · 제품의 세계관을 확장하는 풍성한 비주얼.<br>· Deluxe 전 항목 포함 · AI 연출샷 다수 · 그래픽 아이콘 등 커스텀 강화 요소 ·</p>
   </div>
 
   <!-- 섹션 1 · 푸딩핏 -->

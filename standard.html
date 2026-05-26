@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Deluxe · Detail Page Portfolio</title>
+<title>Standard · Detail Page Portfolio</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pretendard:wght@400;500;600;700;800;900&family=Caveat:wght@600;700&display=swap');
 
@@ -202,27 +202,11 @@
     background:linear-gradient(transparent, var(--col-bg) 65%);
   }
 
-  /* ── 섹션 · Field Notes (원두 필터) ── */
-  .section.s-coffee{
-    --bg: linear-gradient(135deg, #2A1F18 0%, #4A3527 100%);
-    --text:#F5EAD7; --sub:#C9B69A; --accent:#D4A968;
-    --badge-bg:#1F1812; --col-bg:#FFFCF5;
-  }
-  .section.s-coffee .phone-area .label{ color:#F5EAD7; background:#1F1812; border-color:#D4A968; }
-  .section.s-coffee .preview-col .col-tag{ background:rgba(31,24,18,0.85); color:#F5EAD7; }
-  .section.s-coffee .preview-col .col-foot{
-    color:#8B7355;
-    background:linear-gradient(transparent, #FFFCF5 65%);
-  }
-  .section.s-coffee .circle-badge .top,
-  .section.s-coffee .circle-badge .bot{ color:#D4A968; }
-  .section.s-coffee .circle-badge .main{ color:#F5EAD7; }
-
-  /* ── 섹션 · Cozy Hug ── */
-  .section.s-cozy{
-    --bg: linear-gradient(135deg, #E0E6EA 0%, #C2D0DA 100%);
-    --text:#2A3540; --sub:#5C6B78; --accent:#5E89A0;
-    --badge-bg:#F8FAFB; --col-bg:#F8FAFB;
+  /* ── 섹션 · Pebble Pack Chair ── */
+  .section.s-pebble{
+    --bg: linear-gradient(135deg, #EEEFE9 0%, #C9CCBE 100%);
+    --text:#2A2F22; --sub:#5C6450; --accent:#6B7355;
+    --badge-bg:#FAFBF6; --col-bg:#FAFBF6;
   }
 
   /* ── 스크롤 애니메이션 ── */
@@ -308,91 +292,53 @@
 
   <!-- 인트로 -->
   <div class="intro">
-    <div class="eyebrow">— Tier 02 · Deluxe —</div>
-    <h1>The <em>Deluxe</em></h1>
-    <p>상품 맞춤 디자인 · 브랜드 무드와 제품 컨셉이 살아나는 맞춤 시각 언어로 제작합니다.<br>· 브랜드 컬러 적용 · 섹션별 맞춤 레이아웃 · 커스텀 비주얼 ·</p>
+    <div class="eyebrow">— Tier 01 · Standard —</div>
+    <h1>The <em>Standard</em></h1>
+    <p>깔끔한 기본 디자인 · 정돈된 구성과 단정한 타이포로 제품의 본질을 전달합니다.<br>· 표준 섹션 구성 · 제품컷 중심 레이아웃 · 가벼운 제작 단가 ·</p>
   </div>
 
-  <!-- 섹션 1 · 코지허그 -->
-  <section class="section s-cozy">
+  <!-- 섹션 · 페블 캠핑 의자 -->
+  <section class="section s-pebble">
     <div class="corner-label">
-      <span>Cozy Hug · Memory Foam</span>
-      <span class="num">No. 01 / 02</span>
+      <span>Pebble · 850 Pack Chair</span>
+      <span class="num">No. 01 / 01</span>
     </div>
     <div class="row">
       <div class="phone-area">
-        <div class="label">메모리폼 슬립 필로우</div>
-        <div class="ko-copy">3초 만에 안기는<br>메모리폼의 감각</div>
-        <div class="script">3-sec hug</div>
+        <div class="label">초경량 패킹 체어</div>
+        <div class="ko-copy">850g,<br>백패킹의 짐을 줄이다</div>
+        <div class="script">850g, lighter</div>
         <div class="phone">
-          <div class="phone-screen"><img src="코지허그.png" alt=""></div>
+          <div class="phone-screen"><img src="페블 캠핑 의자.png" alt=""></div>
         </div>
         <div class="badges">
           <div class="circle-badge">
-            <div class="top">memory</div>
-            <div class="main">3초<br>메모리폼</div>
-            <div class="bot">soft</div>
+            <div class="top">850 g</div>
+            <div class="main">초경량<br>패킹</div>
+            <div class="bot">lightweight</div>
           </div>
           <div class="circle-badge">
-            <div class="top">breathable</div>
-            <div class="main">통풍<br>메쉬커버</div>
-            <div class="bot">washable</div>
+            <div class="top">100 kg</div>
+            <div class="main">항공기급<br>프레임</div>
+            <div class="bot">durable</div>
           </div>
         </div>
       </div>
-      <div class="preview-col top" style="background-image:url('코지허그.png')">
+      <div class="preview-col top" style="background-image:url('페블 캠핑 의자.png')">
         <span class="col-tag">Detail · 1</span>
-        <span class="col-foot">— Cozy Hug · Hero —</span>
+        <span class="col-foot">— Pebble · Spec —</span>
       </div>
-      <div class="preview-col bottom" style="background-image:url('코지허그.png')">
+      <div class="preview-col bottom" style="background-image:url('페블 캠핑 의자.png'); background-position-y: 50%">
         <span class="col-tag">Detail · 2</span>
-        <span class="col-foot">— Cozy Hug · Detail —</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- 섹션 2 · 원두 필터 -->
-  <section class="section s-coffee">
-    <div class="corner-label">
-      <span>Field Notes · Specialty Coffee</span>
-      <span class="num">No. 02 / 02</span>
-    </div>
-    <div class="row">
-      <div class="phone-area">
-        <div class="label">예가체프 드립 원두필터</div>
-        <div class="ko-copy">한 잔에 담은<br>깊이의 기록</div>
-        <div class="script">Yirgacheffe</div>
-        <div class="phone">
-          <div class="phone-screen"><img src="원두 필터.png" alt=""></div>
-        </div>
-        <div class="badges">
-          <div class="circle-badge">
-            <div class="top">specialty</div>
-            <div class="main">스페셜티<br>그레이드</div>
-            <div class="bot">grade</div>
-          </div>
-          <div class="circle-badge">
-            <div class="top">ethiopia</div>
-            <div class="main">산지<br>직송</div>
-            <div class="bot">origin</div>
-          </div>
-        </div>
-      </div>
-      <div class="preview-col top" style="background-image:url('원두 필터.png')">
-        <span class="col-tag">Detail · 1</span>
-        <span class="col-foot">— Field Notes · Story —</span>
-      </div>
-      <div class="preview-col bottom" style="background-image:url('원두 필터.png')">
-        <span class="col-tag">Detail · 2</span>
-        <span class="col-foot">— Field Notes · Brewing —</span>
+        <span class="col-foot">— Pebble · Carry —</span>
       </div>
     </div>
   </section>
 
   <!-- 푸터 -->
   <div class="outro">
-    <h2>Let's <em>design</em> yours.</h2>
-    <p>kmong · detail page · 2024 — 2026</p>
+    <h2>Want a <em>customized</em> look?</h2>
+    <p>Deluxe & Premium — also available</p>
     <a href="index.html" class="home-link">← Back to Tiers</a>
   </div>
 
